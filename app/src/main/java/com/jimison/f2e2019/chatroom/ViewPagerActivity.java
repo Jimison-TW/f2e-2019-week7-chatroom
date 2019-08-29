@@ -5,6 +5,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ViewPagerActivity extends AppCompatActivity {
 
     //定義圖片陣列
-    private int images[] = {R.drawable.ic_landing, R.drawable.ic_rule1, R.drawable.ic_rule2, R.drawable.ic_rule3};
+    private int[] images = {R.drawable.ic_landing, R.drawable.ic_rule1, R.drawable.ic_rule2, R.drawable.ic_rule3};
     //定義一個View的陣列
     private List<View> views = new ArrayList<>();
     private ViewPager viewPager;
@@ -27,8 +28,9 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
 
-        for (int i : images) {
+        for (int i=0;i<images.length;i++) {
             ImageView imageView = new ImageView(this);
+            Log.d("myapp",i+"");
             imageView.setImageResource(images[i]);
             views.add(imageView);
         }
